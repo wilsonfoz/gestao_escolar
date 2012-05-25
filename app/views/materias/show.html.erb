@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @materia.nome %>
+</p>
+
+<p>
+  <b>Turma:</b>
+  <%= @materia.turma %>
+</p>
+
+
+<%= link_to 'Edit', edit_materia_path(@materia) %> |
+<%= link_to 'Back', materias_path %>

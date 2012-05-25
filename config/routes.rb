@@ -1,4 +1,6 @@
 GestaoEscolar::Application.routes.draw do
+  resources :materias
+
   resources :turmas
 
   resources :alunos
