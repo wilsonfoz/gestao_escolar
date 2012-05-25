@@ -11,9 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525142501) do
+ActiveRecord::Schema.define(:version => 20120525150421) do
 
   create_table "alunos", :force => true do |t|
+    t.string   "nome"
+    t.integer  "turma_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "alunos", ["turma_id"], :name => "index_alunos_on_turma_id"
+
+  create_table "materias", :force => true do |t|
+    t.string   "nome"
+    t.integer  "turma_id"
+    t.integer  "professor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "materias", ["turma_id", "professor_id"], :name => "index_materias_on_turma_id_and_professor_id"
+
+  create_table "professores", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "turmas", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
