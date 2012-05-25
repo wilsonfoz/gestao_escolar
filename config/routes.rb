@@ -1,4 +1,6 @@
 GestaoEscolar::Application.routes.draw do
+  resources :turmas
+
   resources :alunos
 
   # The priority is based upon order of creation:
