@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem "bootstrap-sass", "~> 2.0.3"
 gem "simple_form", "~> 2"
 gem 'will_paginate', '~> 3.0'
+gem 'dynamic_form'
 
 group :development, :test do
   gem "hirb" # apresenta melhor os dados no console
