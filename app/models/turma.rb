@@ -6,4 +6,6 @@ class Turma < ActiveRecord::Base
 
   accepts_nested_attributes_for :aulas, :reject_if => :all_blank
 
+  validates_associated :aulas
+
 end
