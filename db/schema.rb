@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525150421) do
+ActiveRecord::Schema.define(:version => 20120525234135) do
 
   create_table "alunos", :force => true do |t|
     t.string   "nome"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20120525150421) do
   end
 
   add_index "materias", ["turma_id", "professor_id"], :name => "index_materias_on_turma_id_and_professor_id"
+
+  create_table "materias_professores", :id => false, :force => true do |t|
+    t.integer "materia_id"
+    t.integer "professor_id"
+  end
+
+  add_index "materias_professores", ["materia_id", "professor_id"], :name => "index_materias_professores_on_materia_id_and_professor_id"
 
   create_table "professores", :force => true do |t|
     t.string   "nome"

@@ -1,4 +1,8 @@
 class Professor < ActiveRecord::Base
-  attr_accessible :nome
-  has_many :materias
+  has_and_belongs_to_many :materias
+  attr_accessible :nome, :materia_ids
+
+  def to_s
+  	nome
+  end
 end
