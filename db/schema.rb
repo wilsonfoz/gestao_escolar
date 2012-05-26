@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(:version => 20120526022812) do
   create_table "aulas", :force => true do |t|
     t.integer  "materia_id"
     t.integer  "professor_id"
+    t.integer  "turma_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "aulas", ["materia_id", "professor_id"], :name => "index_aulas_on_materia_id_and_professor_id"
+  add_index "aulas", ["materia_id", "professor_id", "turma_id"], :name => "index_aulas_on_materia_id_and_professor_id_and_turma_id"
 
   create_table "materias", :force => true do |t|
     t.string   "nome"
