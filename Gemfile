@@ -24,7 +24,7 @@ gem 'jquery-rails'
 gem "bootstrap-sass", "~> 2.0.3"
 gem "simple_form", "~> 2"
 gem 'will_paginate', '~> 3.0'
-gem 'dynamic_form'
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 
 group :development, :test do
   gem "hirb" # apresenta melhor os dados no console
