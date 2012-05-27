@@ -7,6 +7,8 @@ class CreateAulas < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :aulas, [:materia_id, :professor_id, :turma_id]
+    add_index :aulas, :materia_id
+    add_index :aulas, :professor_id
+    add_index :aulas, :turma_id
   end
 end

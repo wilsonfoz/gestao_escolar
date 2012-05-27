@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(:version => 20120526022812) do
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "aulas", ["materia_id", "professor_id", "turma_id"], :name => "index_aulas_on_materia_id_and_professor_id_and_turma_id"
+  add_index "aulas", ["materia_id"], :name => "index_aulas_on_materia_id"
+  add_index "aulas", ["professor_id"], :name => "index_aulas_on_professor_id"
+  add_index "aulas", ["turma_id"], :name => "index_aulas_on_turma_id"
 
   create_table "materias", :force => true do |t|
     t.string   "nome"
