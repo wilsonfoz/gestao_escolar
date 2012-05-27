@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Nome</th>
+    <th>Turma</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @alunos.each do |aluno| %>
   <tr>
     <td><%= aluno.nome %></td>
+    <td><%= aluno.turma.nome %></td>
     <td><%= link_to 'Show', aluno %></td>
     <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
     <td><%= link_to 'Destroy', aluno, confirm: 'Are you sure?', method: :delete %></td>

@@ -2,7 +2,7 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all
+    @alunos = Aluno.find(:all, :order => [:turma_id, :nome])
 
     respond_to do |format|
       format.html # index.html.erb
