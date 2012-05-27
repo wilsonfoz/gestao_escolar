@@ -7,7 +7,7 @@ class Aula < ActiveRecord::Base
 
   attr_accessible :materia_id, :professor_id
 
-  validates_uniqueness_of :materia_id, :scope => :turma_id
+  validates_uniqueness_of :materia_id, :scope => [:turma_id]
 
   def to_s
   	"#{self.professor} - #{self.materia}"
