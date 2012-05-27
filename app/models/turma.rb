@@ -7,8 +7,8 @@ class Turma < ActiveRecord::Base
 
   accepts_nested_attributes_for :aulas, :reject_if => :all_blank, :allow_destroy => true
 
+  validates_presence_of :nome
   validates_associated :aulas
-
   validate :validate_unique_aulas
 
   def validate_unique_aulas

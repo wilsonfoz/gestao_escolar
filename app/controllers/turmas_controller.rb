@@ -26,7 +26,7 @@ class TurmasController < ApplicationController
   def new
     @turma = Turma.new
     @turma.aulas.build
-    
+        
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @turma }
