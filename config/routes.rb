@@ -1,11 +1,17 @@
 GestaoEscolar::Application.routes.draw do
+  get "principal/home"
+
   resources :professores
+  match 'relatorio_professores' => 'professores#relatorio_professores'
 
   resources :materias
 
   resources :turmas
 
   resources :alunos
+  match 'relatorio_alunos' => 'alunos#relatorio_alunos'
+
+  root :to => 'principal#home', :as => 'principal'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
