@@ -7,16 +7,35 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @professores.each do |professor| %>
-  <tr>
-    <td><%= professor.nome %></td>
-    <td><%= link_to 'Show', professor %></td>
-    <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
-    <td><%= link_to 'Destroy', professor, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <% @professores.each do |professor| %>
+    <tr>
+      <td><%= professor.nome %></td>
+      <td><%= link_to 'Show', professor %></td>
+      <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
+      <td><%= link_to 'Destroy', professor, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
 </table>
+
+<% @professores_turmas.each do |turma| %>
+  <br />
+  <h2><%= turma.nome %></h2>
+  <table>
+    <tr>
+      <th>Professores</th>
+      <th>Matérias</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% turma.aulas.each do |aula| %>
+      <tr>
+        <td><%= aula.professor.nome %></td>
+        <td><%= aula.materia.nome %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 
 <br />
 

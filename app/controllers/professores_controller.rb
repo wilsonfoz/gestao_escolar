@@ -3,6 +3,7 @@ class ProfessoresController < ApplicationController
   # GET /professores.json
   def index
     @professores = Professor.all
+    @professores_turmas = Turma.includes({:professores => [:materias]}, :aulas).all
 
     respond_to do |format|
       format.html # index.html.erb
