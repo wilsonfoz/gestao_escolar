@@ -17,6 +17,13 @@
   <% end %>
 </table>
 
+<%= form_tag nil, :method => 'get', :id => "form_filter" do %>
+  <h3>Filtrar relatório de professores:</h3>
+  <%= select_tag :filtro, options_for_select(["Por professor", "Por turma"], @opcao_filtro), :id => "filter" %>
+  <%#= submit_tag "Filtrar" %>
+<% end %>
+
+<% if @opcao_filtro == "Por turma" %>
 <% @professores_turmas.each do |turma| %>
   <br />
   <h2><%= turma.nome %></h2>
@@ -35,6 +42,31 @@
       </tr>
     <% end %>
   </table>
+<% end %>
+<% end %>
+
+<br />
+<% if @opcao_filtro == "Por professor" %>
+<h1> Por prof</h1>
+<% @professores_materia.each do |prof| %>
+  <br />
+  <h2><%= prof.nome %></h2>
+  <table>
+    <tr>
+      <th>Turma</th>
+      <th>Matérias</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% prof.aulas.each do |aula| %>
+      <tr>
+        <td><%= aula.turma.nome %></td>
+        <td><%= aula.materia.nome %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 <% end %>
 
 <br />

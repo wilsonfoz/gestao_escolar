@@ -3,7 +3,12 @@ class ProfessoresController < ApplicationController
   # GET /professores.json
   def index
     @professores = Professor.all
-    @professores_turmas = Turma.includes({:professores => [:materias]}, :aulas).all
+    @opcao_filtro = params[:filtro] || "Por turma"
+    if @opcao_filtro == "Por turma"
+      @professores_turmas = Turma.includes({:professores => [:materias]}, :aulas).all
+    elsif @opcao_filtro == "Por professor"  
+      @professores_materia = Professor.includes({:turmas => [:materias]}, :aulas).all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
