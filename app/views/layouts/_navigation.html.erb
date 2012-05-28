@@ -1,0 +1,15 @@
+<header class="jumbotron subhead" id="overview">
+<h3>
+  <%= link_to "Principal", principal_path %> |
+  <%= link_to "Alunos", alunos_path %> |
+  <%= link_to "Professores", professores_path %> |
+  <%= link_to "Matérias", materias_path %> |
+  <%= link_to "Turmas", turmas_path %> |
+</h3>
+
+<div class="subnav subnav-fixed">
+  <ul class="nav nav-pills">
+    <li><%= link_to ">> Relatório de alunos", relatorio_alunos_path if controller_name == "alunos" %></li>
+    <li><%= link_to ">> Relatório de professores", relatorio_professores_path if controller_name == "professores" %></li>
+  </ul>
+</div>
