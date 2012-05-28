@@ -1,0 +1,22 @@
+<h1>Relação de alunos por turma</h1>
+
+<% @turmas_alunos.each do |turma| %>
+  <br />
+  <h2><%= turma.nome %></h2>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Alunos</th>
+    </tr>
+    <% if turma.alunos.empty? %>
+      <tr>
+      <td>Nenhum aluno registrado nesta turma.</td>
+      </tr>
+    <% else %>
+      <% turma.alunos.each do |aluno| %>
+        <tr>
+          <td><%= aluno.nome %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>

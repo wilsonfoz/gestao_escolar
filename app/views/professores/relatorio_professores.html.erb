@@ -1,0 +1,18 @@
+<h1>Relatório de professores</h1>
+
+<%= form_tag nil, :method => 'get', :id => "form_filter" do %>
+  <h3>Filtrar relatório de professores:</h3>
+  <%= select_tag :filtro, options_for_select(["Por professor", "Por turma"], @opcao_filtro), :id => "filter" %>
+<% end %>
+
+<% if @opcao_filtro == "Por turma" %>
+  <%= render :partial => "turma", :collection => @turmas_professores %>
+<% end %>
+
+<% if @opcao_filtro == "Por professor" %>
+  <%= render :partial => "prof", :collection => @professores_turmas %>
+<% end %>
+
+<br />
+
+<%= link_to 'Voltar', professores_path %>
