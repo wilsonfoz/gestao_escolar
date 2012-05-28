@@ -1,6 +1,6 @@
-<h1>Listing turmas</h1>
+<h1>Relação de turmas</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <tr>
     <th>Nome</th>
     <th></th>
@@ -11,35 +11,13 @@
 <% @turmas.each do |turma| %>
   <tr>
     <td><%= turma.nome %></td>
-    <td><%= link_to 'Show', turma %></td>
-    <td><%= link_to 'Edit', edit_turma_path(turma) %></td>
-    <td><%= link_to 'Destroy', turma, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Exibir', turma %></td>
+    <td><%= link_to 'Alterar', edit_turma_path(turma) %></td>
+    <td><%= link_to 'Excluir', turma, confirm: 'Tem certeza?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<% @turmas_alunos.each do |turma| %>
-  <br />
-  <h2><%= turma.nome %></h2>
-  <table>
-    <tr>
-      <th>Alunos</th>
-    </tr>
-    <% if turma.alunos.empty? %>
-      <tr>
-      <td>Nenhum aluno registrado nesta turma.</td>
-      </tr>
-    <% else %>
-      <% turma.alunos.each do |aluno| %>
-        <tr>
-          <td><%= aluno.nome %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </table>
-<% end %>
-
-
-<%= link_to 'New Turma', new_turma_path %>
+<%= link_to 'Cadastrar turma', new_turma_path %>
