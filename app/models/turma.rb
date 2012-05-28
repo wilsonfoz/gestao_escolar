@@ -2,6 +2,8 @@
 class Turma < ActiveRecord::Base
   has_many :alunos
   has_many :aulas, :dependent => :destroy
+  has_many :materias, :through => :aulas
+  has_many :professores, :through => :aulas
 
   attr_accessible :nome, :aula_ids, :aulas_attributes, :materias, :professores
 
