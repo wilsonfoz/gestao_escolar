@@ -3,7 +3,6 @@ class AlunosController < ApplicationController
   # GET /alunos.json
   def index
     @alunos = Aluno.find(:all, :order => [:turma_id, :nome])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @alunos }

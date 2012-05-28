@@ -2,7 +2,8 @@ class TurmasController < ApplicationController
   # GET /turmas
   # GET /turmas.json
   def index
-    @turmas = Turma.all
+    @turmas = Turma.includes(:alunos).all
+    @turmas_alunos = Turma.includes(:alunos).all
 
     respond_to do |format|
       format.html # index.html.erb

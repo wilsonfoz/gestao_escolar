@@ -20,4 +20,26 @@
 
 <br />
 
+<% @turmas_alunos.each do |turma| %>
+  <br />
+  <h2><%= turma.nome %></h2>
+  <table>
+    <tr>
+      <th>Alunos</th>
+    </tr>
+    <% if turma.alunos.empty? %>
+      <tr>
+      <td>Nenhum aluno registrado nesta turma.</td>
+      </tr>
+    <% else %>
+      <% turma.alunos.each do |aluno| %>
+        <tr>
+          <td><%= aluno.nome %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>
+
+
 <%= link_to 'New Turma', new_turma_path %>
