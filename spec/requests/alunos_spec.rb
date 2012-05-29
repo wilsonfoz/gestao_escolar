@@ -27,6 +27,7 @@ describe "Alunos" do
       click_on "Cadastrar aluno"
       fill_in "aluno_nome", with: "Napoleão Bonaparte"
       click_on "Criar Aluno"
+      page.should have_content("Os dados foram salvos com sucesso.")
       page.should have_content("Napoleão Bonaparte")
     end
   end

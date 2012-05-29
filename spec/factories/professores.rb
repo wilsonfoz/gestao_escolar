@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :professor do
-    nome "MyString"
-    materias
-    turmas
+    nome "Nome Professor"
   end
 end
