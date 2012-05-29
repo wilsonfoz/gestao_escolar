@@ -3,7 +3,7 @@ module AlunosHelper
 
   def nenhum_aluno
 	"<tr>
-	  <td>Não há alunos cadastrados</td>
+	  <td>Não há alunos cadastrados.</td>
 	  <td></td>
 	  <td></td>
 	  <td></td>
