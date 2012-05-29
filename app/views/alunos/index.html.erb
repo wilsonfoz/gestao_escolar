@@ -8,15 +8,8 @@
     <th></th>
   </tr>
 
-<% @alunos.each do |aluno| %>
-  <tr>
-    <td><%= aluno.nome %></td>
-    <td><%= aluno.turma.nome %></td>
-    <td><%= link_to 'Exibir', aluno %></td>
-    <td><%= link_to 'Alterar', edit_aluno_path(aluno) %></td>
-    <td><%= link_to 'Excluir', aluno, confirm: 'Tem certeza?', method: :delete %></td>
-  </tr>
-<% end %>
+<%= render(@alunos) || nenhum_aluno %>
+  
 </table>
 
 <br />

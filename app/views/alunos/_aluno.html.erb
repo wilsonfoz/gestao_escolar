@@ -1,0 +1,7 @@
+<tr>
+    <td><%= aluno.nome %></td>
+    <td><%= aluno.turma ? aluno.turma.nome : "O aluno não está registrado em uma turma." %></td>
+    <td><%= link_to 'Exibir', aluno %></td>
+    <td><%= link_to 'Alterar', edit_aluno_path(aluno) %></td>
+    <td><%= link_to 'Excluir', aluno, confirm: 'Tem certeza?', method: :delete %></td>
+ </tr>

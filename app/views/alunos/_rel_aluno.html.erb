@@ -1,0 +1,18 @@
+<br />
+<h2><%= rel_aluno.nome %></h2>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Alunos</th>
+  </tr>
+  <% if rel_aluno.alunos.empty? %>
+    <tr>
+    <td>Nenhum aluno registrado nesta rel_aluno.</td>
+    </tr>
+  <% else %>
+    <% rel_aluno.alunos.each do |aluno| %>
+      <tr>
+        <td><%= aluno.nome %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
