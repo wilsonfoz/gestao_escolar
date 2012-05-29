@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :materia do
-    nome "MyString"
-    turma nil
+    sequence(:nome) {|m| "materia{m}"}
   end
 end

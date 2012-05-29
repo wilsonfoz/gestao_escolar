@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :turma do
-    nome "MyString"
+    sequence(:nome) {|t| "TurmaTeste#{t}"}
   end
 end
