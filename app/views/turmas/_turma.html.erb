@@ -1,0 +1,6 @@
+<tr>
+  <td><%= turma.nome %></td>
+  <td><%= link_to 'Exibir', turma %></td>
+  <td><%= link_to 'Alterar', edit_turma_path(turma) %></td>
+  <td><%= link_to 'Excluir', turma, confirm: 'Tem certeza?', method: :delete %></td>
+</tr>
