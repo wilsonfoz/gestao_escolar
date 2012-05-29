@@ -10,9 +10,9 @@ class ProfessoresController < ApplicationController
   def relatorio_professores
     @opcao_filtro = params[:filtro] || "Por turma"
     if @opcao_filtro == "Por turma"
-      @turmas_professores = Turma.includes({:professores => [:materias]}, :aulas).joins(:professores)
+      @turmas_professores = Turma.includes({:professores => [:materias]}, :aulas).joins(:professores, :aulas)
     elsif @opcao_filtro == "Por professor"  
-      @professores_turmas = Professor.includes({:turmas => [:materias]}, :aulas).all
+      @professores_turmas = Professor.includes({:turmas => [:materias]}, :aulas).joins(:turmas, :aulas)
     end
   end
   

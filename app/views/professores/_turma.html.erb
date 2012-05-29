@@ -7,7 +7,7 @@
   </tr>
   <% turma.aulas.each do |aula| %>
     <tr>
-      <td><%= aula.professor ? aula.professor.nome : "Não há professor cadastrado." %></td>
+      <td><%= aula.professor.nome %></td>
       <td><%= aula.materia ? aula.materia.nome : "Não há matéria cadastrada." %></td>
     </tr>
   <% end %>
