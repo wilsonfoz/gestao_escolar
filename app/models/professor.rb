@@ -5,6 +5,8 @@ class Professor < ActiveRecord::Base
 
   attr_accessible :nome, :materia_ids
 
+  validates_presence_of :nome
+
   def to_s
   	nome
   end

@@ -7,14 +7,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @professores.each do |professor| %>
-    <tr>
-      <td><%= professor.nome %></td>
-      <td><%= link_to 'Exibir', professor %></td>
-      <td><%= link_to 'Alterar', edit_professor_path(professor) %></td>
-      <td><%= link_to 'Excluir', professor, confirm: 'Tem certeza?', method: :delete %></td>
-    </tr>
-  <% end %>
+  <%= render(@professores) || nenhum_professor %>
 </table>
 
 <br />
