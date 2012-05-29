@@ -23,17 +23,23 @@ end
 gem 'jquery-rails'
 gem "bootstrap-sass", "~> 2.0.3"
 gem "simple_form", "~> 2"
-gem 'will_paginate', '~> 3.0'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'responders'
+gem 'mocha'
 
-group :development, :test do
+gem "rspec-rails", "~> 2.0", :group => [:development, :test]
+group :test do
   gem "hirb" # apresenta melhor os dados no console
-  gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 3.1"
+  gem "capybara", "~> 1.1"
 end
 
-gem "capybara", "~> 1.1", :group => :test
+group :development do 
+  gem 'libnotify'
+  gem 'guard'
+end
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
