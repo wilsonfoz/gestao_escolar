@@ -6,7 +6,6 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'thin'
-gem 'sqlite3'
 gem 'pg'
 
 
@@ -39,6 +38,7 @@ end
 group :development do 
   gem 'libnotify'
   gem 'guard'
+  gem 'sqlite3'
 end
 
 
