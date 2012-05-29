@@ -3,7 +3,9 @@ require 'spec_helper'
 
 describe "Alunos" do
   describe "vendo alunos com turma" do
-    it "exibe todos os alunos e suas turmas" do
+    it "exibe todos os alunos com turmas" do
+      visit alunos_path
+      page.should have_content("Não há alunos cadastrados.")
       sua_turma = FactoryGirl.create(:turma, :nome => "5a")
       FactoryGirl.create(:aluno, :nome => "Davi", :turma => sua_turma)
       visit alunos_path

@@ -4,6 +4,8 @@ require 'spec_helper'
 describe "Professores" do
   describe "vendo professores" do
     it "exibe todos os professores" do
+      visit professores_path
+      page.should have_content("Não há professores cadastrados.")
       FactoryGirl.create(:professor, :nome => "Pardal")
       visit professores_path
       page.should have_content("Pardal")

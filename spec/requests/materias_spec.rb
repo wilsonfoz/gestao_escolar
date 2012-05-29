@@ -4,6 +4,8 @@ require 'spec_helper'
 describe "Matérias" do
   describe "vendo matérias" do
     it "exibe todas as matérias" do
+      visit materias_path
+      page.should have_content("Não há matérias cadastradas.")
       FactoryGirl.create(:materia, :nome => "Português")
       visit materias_path
       page.should have_content("Português")
