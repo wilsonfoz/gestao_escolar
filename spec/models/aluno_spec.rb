@@ -1,5 +1,8 @@
+#encoding: UTF-8
 require 'spec_helper'
 
 describe Aluno do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "deve possuir um nome" do
+	Aluno.new(:nome => "").should_not be_valid
+  end
 end
