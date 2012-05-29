@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526004942) do
+ActiveRecord::Schema.define(:version => 20120526022812) do
 
   create_table "alunos", :force => true do |t|
     t.string   "nome"
@@ -24,29 +24,21 @@ ActiveRecord::Schema.define(:version => 20120526004942) do
 
   create_table "aulas", :force => true do |t|
     t.integer  "materia_id"
-    t.integer  "turma_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "aulas", ["materia_id", "turma_id"], :name => "index_aulas_on_materia_id_and_turma_id"
-
-  create_table "materias", :force => true do |t|
-    t.string   "nome"
-    t.integer  "turma_id"
     t.integer  "professor_id"
+    t.integer  "turma_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "materias", ["turma_id", "professor_id"], :name => "index_materias_on_turma_id_and_professor_id"
+  add_index "aulas", ["materia_id"], :name => "index_aulas_on_materia_id"
+  add_index "aulas", ["professor_id"], :name => "index_aulas_on_professor_id"
+  add_index "aulas", ["turma_id"], :name => "index_aulas_on_turma_id"
 
-  create_table "materias_professores", :id => false, :force => true do |t|
-    t.integer "materia_id"
-    t.integer "professor_id"
+  create_table "materias", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "materias_professores", ["materia_id", "professor_id"], :name => "index_materias_professores_on_materia_id_and_professor_id"
 
   create_table "professores", :force => true do |t|
     t.string   "nome"

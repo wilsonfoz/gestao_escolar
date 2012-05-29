@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery_nested_form
 //= require_tree .
+
+$(function () {
+  $("#filter").live("change keyup", function () {
+    $("#form_filter").submit();
+  });
+});

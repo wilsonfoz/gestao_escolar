@@ -1,23 +1,22 @@
-<h1>Listing professores</h1>
+<h1>Relação de professores</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <tr>
     <th>Nome</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @professores.each do |professor| %>
-  <tr>
-    <td><%= professor.nome %></td>
-    <td><%= link_to 'Show', professor %></td>
-    <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
-    <td><%= link_to 'Destroy', professor, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <% @professores.each do |professor| %>
+    <tr>
+      <td><%= professor.nome %></td>
+      <td><%= link_to 'Exibir', professor %></td>
+      <td><%= link_to 'Alterar', edit_professor_path(professor) %></td>
+      <td><%= link_to 'Excluir', professor, confirm: 'Tem certeza?', method: :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Professor', new_professor_path %>
+<%= link_to 'Cadastrar professor', new_professor_path %>

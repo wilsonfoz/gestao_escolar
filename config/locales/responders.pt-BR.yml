@@ -1,0 +1,10 @@
+pt-BR:
+  flash:
+    actions:
+      create:
+        notice: "Os dados foram salvos com sucesso."
+      update:
+        notice: "Os dados foram atualizados com sucesso."
+      destroy:
+        notice: "O registro foi removido com sucesso."
+        alert: "O registro não pôde ser removido."

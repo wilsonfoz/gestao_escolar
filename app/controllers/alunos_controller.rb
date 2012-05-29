@@ -1,83 +1,58 @@
 class AlunosController < ApplicationController
-  # GET /alunos
-  # GET /alunos.json
+  respond_to :html
+  
   def index
-    @alunos = Aluno.all
+    @alunos = Aluno.find(:all, :order => [:turma_id, :nome])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @alunos }
-    end
+    respond_with @alunos
   end
 
-  # GET /alunos/1
-  # GET /alunos/1.json
+  def relatorio_alunos
+    @turmas_alunos = Turma.includes(:alunos).all
+
+    respond_with @turmas_alunos
+  end
+
   def show
     @aluno = Aluno.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @aluno }
-    end
+    respond_with @aluno
   end
 
-  # GET /alunos/new
-  # GET /alunos/new.json
   def new
     @aluno = Aluno.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @aluno }
-    end
+    respond_with @aluno
   end
-
-  # GET /alunos/1/edit
+  
   def edit
     @aluno = Aluno.find(params[:id])
   end
-
-  # POST /alunos
-  # POST /alunos.json
+  
   def create
     @aluno = Aluno.new(params[:aluno])
 
-    respond_to do |format|
-      if @aluno.save
-        format.html { redirect_to @aluno, notice: 'Aluno was successfully created.' }
-        format.json { render json: @aluno, status: :created, location: @aluno }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @aluno.errors, status: :unprocessable_entity }
-      end
-    end
+    if @aluno.save
+      respond_with @aluno
+    else
+      render action: "new"
+    end    
   end
-
-  # PUT /alunos/1
-  # PUT /alunos/1.json
+  
   def update
     @aluno = Aluno.find(params[:id])
 
-    respond_to do |format|
-      if @aluno.update_attributes(params[:aluno])
-        format.html { redirect_to @aluno, notice: 'Aluno was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @aluno.errors, status: :unprocessable_entity }
-      end
-    end
+    if @aluno.update_attributes(params[:aluno])
+      respond_with @aluno
+    else
+      render action: "edit"
+    end    
   end
-
-  # DELETE /alunos/1
-  # DELETE /alunos/1.json
+  
   def destroy
     @aluno = Aluno.find(params[:id])
     @aluno.destroy
 
-    respond_to do |format|
-      format.html { redirect_to alunos_url }
-      format.json { head :no_content }
-    end
+    redirect_to alunos_url
   end
 end

@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :aula do
+    materia nil
+    professor nil
   end
 end

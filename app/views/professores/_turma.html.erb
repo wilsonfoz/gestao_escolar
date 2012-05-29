@@ -1,0 +1,14 @@
+<br />
+<h2><%= turma.nome %></h2>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Professores</th>
+    <th>Matérias</th>
+  </tr>
+  <% turma.aulas.each do |aula| %>
+    <tr>
+      <td><%= aula.professor.nome %></td>
+      <td><%= aula.materia ? aula.materia.nome : "Não há matéria cadastrada." %></td>
+    </tr>
+  <% end %>
+</table>
