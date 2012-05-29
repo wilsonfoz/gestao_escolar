@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :aluno do
-    nome "MyString"
+    nome "Nome Aluno"
+    turma
   end
 end
