@@ -38,6 +38,7 @@ end
 group :development do 
   gem 'libnotify'
   gem 'guard'
+  gem 'guard-rspec'
   gem 'sqlite3'
 end
 
