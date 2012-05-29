@@ -8,5 +8,9 @@ module ProfessoresHelper
 	  <td></td>
 	  <td></td>
 	</tr>".html_safe
-  end	
+  end
+
+  def relatorio_vazio
+  	"Não há dados de professores relacionados à aulas.<br />".html_safe
+  end
 end
