@@ -8,7 +8,7 @@ class AlunosController < ApplicationController
   end
 
   def relatorio_alunos
-    @turmas_alunos = Turma.includes(:alunos).all
+    @turmas_alunos = Turma.includes(:alunos).joins(:alunos)
 
     respond_with @turmas_alunos
   end
