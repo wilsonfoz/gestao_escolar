@@ -1,0 +1,6 @@
+<tr>
+  <td><%= materia.nome %></td>
+  <td><%= link_to 'Exibir', materia %></td>
+  <td><%= link_to 'Alterar', edit_materia_path(materia) %></td>
+  <td><%= link_to 'Excluir', materia, confirm: 'Tem certeza?', method: :delete %></td>
+</tr>

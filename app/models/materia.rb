@@ -5,6 +5,7 @@ class Materia < ActiveRecord::Base
   
   attr_accessible :nome, :professor_ids
 
+  validates_presence_of :nome
   validates_uniqueness_of :nome
 
   def to_s
