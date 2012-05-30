@@ -13,9 +13,29 @@ describe "Professores" do
   end
 
   describe "relatório de professores" do
-    it "exibe os professores por turma" 
+    it "exibe os professores por turma" do
+      visit relatorio_professores_path
+      page.should have_content("Não há dados de professores relacionados à aulas.")
+      turma = FactoryGirl.create(:turma, :nome => "5A")
+      professor = FactoryGirl.create(:professor, :nome => "Pardal")
+      turma.professores << professor
+      select("Por turma", :from => 'filtro')
+      click_on "Filtrar"
+      page.should have_css('h2', :text => "5A")
+      page.should have_css('td', :text => "Pardal")
+    end
 
-    it "exibe relatório por professor"
+    it "exibe relatório por professor" do
+      visit relatorio_professores_path
+      page.should have_content("Não há dados de professores relacionados à aulas.")
+      turma = FactoryGirl.create(:turma, :nome => "5A")
+      professor = FactoryGirl.create(:professor, :nome => "Pardal")
+      turma.professores << professor
+      select("Por professor", :from => 'filtro')
+      click_on "Filtrar"
+      page.should have_css('h2', :text => "Pardal")
+      page.should have_css('td', :text => "5A")
+    end
   end  
 
   describe "adicionar um professor" do

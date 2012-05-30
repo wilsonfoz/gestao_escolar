@@ -3,6 +3,7 @@
 <%= form_tag nil, :method => 'get', :id => "form_filter" do %>
   <h3>Filtrar relatório de professores:</h3>
   <%= select_tag :filtro, options_for_select(["Por professor", "Por turma"], @opcao_filtro), :id => "filter" %>
+  <%= submit_tag "Filtrar", :style => "display:none;" %>
 <% end %>
 
 <% if @opcao_filtro == "Por turma" %>
