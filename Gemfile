@@ -33,6 +33,7 @@ group :test do
   gem "hirb" # apresenta melhor os dados no console
   gem "factory_girl_rails", "~> 3.1"
   gem "capybara", "~> 1.1"
+  gem 'shoulda-matchers'
 end
 
 group :development do 
