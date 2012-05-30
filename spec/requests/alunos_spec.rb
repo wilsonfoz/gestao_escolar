@@ -14,6 +14,19 @@ describe "Alunos" do
     end
   end
 
+  describe "relatório de alunos" do
+    it "exibe os alunos por turma" do
+      visit relatorio_alunos_path
+      page.should have_content("Relação de alunos por turma")
+      page.should have_content("Não há alunos registrados em turmas.")
+      turma = FactoryGirl.create(:turma, :nome => "5A")
+      aluno = FactoryGirl.create(:aluno, :nome => "José", :turma => turma)
+      visit relatorio_alunos_path
+      page.should have_css('h2', :text => "5A")
+      page.should have_css('td', :text => "José")
+    end
+  end    
+
   describe "vendo alunos sem turma" do
     it "exibe todos os alunos sem turma" do
       FactoryGirl.create(:aluno, :nome => "Davi", :turma => nil)
